@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/admin/Documents/CadastroReact/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "/Users/admin/Documents/GitHub/CadastroReact/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "/Users/admin/.gradle/caches/transforms-3/19f285c5360101e74a65ffd2dd8f0c51/transformed/material-1.1.0/res/values-night-v8/values-night-v8.xml",

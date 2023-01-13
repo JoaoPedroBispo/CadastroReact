@@ -1,15 +1,24 @@
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Cadastro from '../pages/cadastro';
-import Lista from '../pages/lista';
-import React from 'react';
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Cadastro from "../pages/cadastro";
+import Lista from "../pages/lista";
 
 const Stack = createNativeStackNavigator();
 
-export default function StackNavigator() {
+export default function StackNavegation() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={Cadastro} />
-      <Stack.Screen name="Cadastrados" component={Lista} />
+      <Stack.Screen name="Cadastro" component={Cadastro} />
+      <Stack.Screen
+        name="Lista"
+        component={Lista}
+        options={{
+          headerStyle: {
+            backgroundColor: "#fff",
+          },
+          headerTintColor: "#fff",
+        }}
+      />
     </Stack.Navigator>
   );
 }

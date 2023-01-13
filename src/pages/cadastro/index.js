@@ -1,63 +1,64 @@
-import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  TextInput,
-  ScrollView,
-  TouchableOpacity,
-} from 'react-native';
-
-import Style from './style';
-import {Navegar} from './functtion';
-import {useNavigation} from '@react-navigation/native';
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, TextInput } from "react-native";
+import Styles from "./styles";
+import { Navegar } from "./function";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
 export default function Cadastro() {
-  const Navigation = useNavigation();
-  const [Nome, setNome] = useState('');
-  const [Idade, setIdade] = useState('');
-  const [Cpf, setCpf] = useState('');
+  const [nome, setNome] = useState("");
+  const [idade, setIdade] = useState(0);
+  const [cpf, setCpf] = useState(0);
 
-  const Cadastrar = () => {
-    Navigation.navigate('Cadastrados', {Nome: Nome, Idade: Idade, Cpf: Cpf});
+  const navegation = useNavigation();
+
+  const register = () => {
+    navegation.navigate("Lista", {
+      nome: nome,
+      idade: idade,
+      cpf: cpf,
+    });
   };
 
   return (
-    <View style={Style.container}>
-      <ScrollView style={Style.header}>
-        <Text style={Style.text}>Nome</Text>
+    <View style={Styles.Container}>
+      <View>
+        <Text style={Styles.TextInfo}>Nome</Text>
         <TextInput
-          style={Style.input}
-          value={Nome}
-          onChangeText={text => setNome(text)}
-        />
+          value={nome}
+          onChangeText={(text) => {
+            setNome(text);
+          }}
+          keyboardType={"string"}
+          style={Styles.Input}
+        ></TextInput>
 
-        <Text style={Style.text}>Idade</Text>
+        <Text style={Styles.TextInfo}>Idade</Text>
         <TextInput
-          maxLength={3}
-          keyboardType={'number-pad'}
-          style={Style.input}
-          value={Idade}
-          onChangeText={text => setIdade(text)}
-        />
+          value={idade}
+          onChangeText={(text) => {
+            setIdade(text);
+          }}
+          keyboardType={"number-pad"}
+          maxLength={2}
+          style={Styles.Input}
+        ></TextInput>
 
-        <Text style={Style.text}>Cpf</Text>
+        <Text style={Styles.TextInfo}>CPF</Text>
         <TextInput
-          maxLength={11}
-          keyboardType={'number-pad'}
-          style={Style.input}
-          value={Cpf}
-          onChangeText={text => setCpf(text)}
-        />
+          value={cpf}
+          onChangeText={(text) => {
+            setCpf(text);
+          }}
+          keyboardType={"number-pad"}
+          minLenght={11}
+          maxLength={14}
+          style={Styles.Input}
+        ></TextInput>
 
-        <View>
-          <TouchableOpacity
-            title="Cadastrar"
-            style={Style.button}
-            onPress={Cadastrar}>
-            <Text>Cadastrar</Text>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
+        <TouchableOpacity style={Styles.button} onPress={() => register()}>
+          <Text>REGISTRAR</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
