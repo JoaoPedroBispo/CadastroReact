@@ -7,11 +7,9 @@ const Styles = StyleSheet.create({
     paddingTop: "5%",
   },
 
-  Cor: {
+  lista: {
     backgroundColor: "white",
-    marginBottom: "5%",
-    marginLeft: "5%",
-    marginRight: "5%",
+    margin: 5,
     borderRadius: 10,
     flexDirection: "row",
     borderWidth: 2,

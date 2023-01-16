@@ -16,7 +16,7 @@ export function handleRemove(lista, setLista) {
 //a função item é uma sub da principal
 export function Item({ data }) {
   return (
-    <View style={Styles.Cor}>
+    <View style={Styles.lista}>
       <Image
         style={Styles.img}
         source={{
